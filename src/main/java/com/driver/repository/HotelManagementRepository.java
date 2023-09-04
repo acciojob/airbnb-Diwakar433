@@ -134,8 +134,21 @@ public class HotelManagementRepository {
 
     public int getBookings(Integer aadharCard) {
 
-       return userBookingDB.get(aadharCard).size();
+//        int count = 0;
+//
+//        for (String bookingId : userBookingDB.get(aadharCard))
+//        {
+//            count += bookingDB.get(bookingId).getNoOfRooms();
+//        }
+//        return count;
 
+        int count = 0;
+        for(String bookingid : bookingDB.keySet()){
+            if(bookingDB.get(bookingid).getBookingAadharCard() == aadharCard){
+                count++;
+            }
+        }
+        return count;
     }
 
 
